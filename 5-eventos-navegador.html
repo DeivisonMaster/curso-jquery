@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos de Navegador</title>
+    <script src="../jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function (){
+
+            // alterando atributo src em caso de erro
+            /*
+            $('img').on('error', function (){
+                $(this).attr('src', 'img/erro.jpg');
+            });
+            */
+            
+            $('img').on('error', function(){
+                var imagem = $(this).attr('src');
+                alert('imagem ' + imagem +' indisponivel');
+                
+                $(this).attr('src', 'img/erro.jpg');
+            });
+
+
+            // RESIZE
+            var largura;
+            var altura;
+
+            $(window).resize(function (){
+                largura = $(window).width();
+                altura  = $(window).height();
+
+                $('img')
+                .width(largura)
+                .height(altura);
+            });
+
+
+
+            // SCROLL
+            /*
+            $(window).scroll(function (){
+                $('img').fadeOut(1000);
+            });
+            */
+
+            $('body').css('height', '5000px');
+            $(window).scroll(function (){
+                var topo = $(window).scrollTop();
+                //alert(topo);
+
+                if(topo >= 388){
+                    $('img').fadeOut(1000);
+                }else{
+                    $('img').fadeIn(1000);
+                }
+
+            });
+        });
+    </script>
+</head>
+<body>
+        
+        <img src="img/coruja.png"/>
+
+</body>
+</html>
