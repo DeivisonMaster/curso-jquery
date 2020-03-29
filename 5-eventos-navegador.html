@@ -17,6 +17,7 @@
             
             $('img').on('error', function(){
                 var imagem = $(this).attr('src');
+                
                 alert('imagem ' + imagem +' indisponivel');
                 
                 $(this).attr('src', 'img/erro.jpg');
@@ -46,6 +47,7 @@
             */
 
             $('body').css('height', '5000px');
+            
             $(window).scroll(function (){
                 var topo = $(window).scrollTop();
                 //alert(topo);
