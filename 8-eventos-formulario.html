@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Formulário</title>
+    <script src="../jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            $('.place').each(function (){
+                var placeHolder = $(this).attr('title');
+                var input = $(this);
+
+                input
+                    .val(placeHolder)
+                    .css({color: '#ccc'})
+                    .focusin(function (){
+                        $(this).css({color: '#000'});
+
+                        if(input.val() == placeHolder){
+                            input.val('');
+                        }
+                    }).focusout(function (){
+                        $(this)
+                            .css({color: '#ccc'})
+                            .val(placeHolder);
+                    });
+            });
+
+            var ex1 = $('.ex1');
+            /*
+            $('.key').keypress(function (){
+                ex1.text($(this).val());
+            });
+            */
+
+            $('.ev1').focus(function (){
+                var title = $(this).attr('title');
+
+                ex1.text(title);
+            }).keyup(function (){
+                if($(this).val() == 'pontocom'){
+                    $('.ev2').focus();
+                }
+            });
+
+            /*
+            $('.ev1').blur(function (){
+                ex1.text('Saida do campo: ' + $(this).attr('name'));
+            });
+            */
+
+
+            $('.ev1').change(function (){
+                ex1.text("Campo alterado: " + $(this).val());
+            });
+
+
+            $('.selecionar').click(function (){
+                $('.ev3').select();
+
+                $('form').submit(function (){
+                    return false;
+                });
+            });
+
+
+            
+        })
+    </script>
+
+    <style>
+        .ex1{
+            width: 460px; 
+            padding: 20px;
+            background: #1e90ff;
+            margin: 0 auto;
+            text-align: center;
+            color: #fff;
+        }
+
+        label{
+            display: block; margin: 10px 0; padding: 0; background: #f8f8f8;
+        }
+
+        input, textarea{
+            padding: 5px; width: 450px; display: block; margin: 0 auto;
+        }
+
+        button{
+            width: 465px; display: block; margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+        
+        <div class="ex1">Aguardando Ação</div>
+
+        <form action="">
+            <label>
+                <input type="text" class="place ev1" title="Digite seu nome" name="nome">
+            </label>
+
+            <label>
+                <input type="text" class="place ev2" title="Digite seu e-mail" name="e-mail">
+            </label>
+
+            <label>
+                <input type="text" class="place" title="Digite seu telefone">
+            </label>
+            <label>
+                <textarea rows="3" class="place key ev3" title="Informe detalhes"></textarea>
+            </label>
+            <label>
+                <button class="selecionar">Selecionar</button>                
+                <button>Enviar</button>
+            </label>
+        </form>
+
+</body>
+</html>
