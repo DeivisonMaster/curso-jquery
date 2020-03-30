@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos Carregamento e Inicialização</title>
+    <style>
+        *{
+            margin: 0; padding: 0; vertical-align: baseline;
+        }
+        main{
+            height: 2000px;
+        }
+        .topo{
+            width: 100%; background-color: #ccc; 
+            height: 100px; margin: 0;
+        }
+        .menu{
+            min-width: 940px; height: auto; 
+        }
+        nav{
+            margin: 0 auto; height: 30px; background-color: blue;
+        }
+        nav ul{
+            list-style: none; clear: both; color: #fff; margin: 0 auto;
+        }
+        nav ul li{
+            float: left;
+        }
+        nav ul li a{
+            color: #fff; text-decoration: none; display: block;
+            padding: 0 30px 0 30px; line-height: 30px;
+        }
+        .menu-fixo{
+            position: fixed;
+            top: 0;
+            z-index: 999;
+            width: 100%;
+        }        
+    </style>
+    <script src="../jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            var nav = $('.nav');
+
+            $(window).scroll(function (){
+                if($(this).scrollTop() > 100){
+                    nav.addClass("menu-fixo");
+                }else{
+                    nav.removeClass("menu-fixo");
+                }
+
+            });
+        });
+    </script>
+</head>
+<body>
+
+        <main>
+            <div class="menu">
+                <div class="topo">
+                    <h2>PontoCom</h2>
+                    <h3>Desenvolvimento e Manutenção</h3>
+                </div>
+
+                <nav class="nav">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>                
+                </nav>
+            </div>
+             
+            <div class="conteudo">
+                <section>
+
+                </section>
+            </div>
+
+            <footer>
+                
+            </footer>
+        </main>
+    
+</body>
+</html>
