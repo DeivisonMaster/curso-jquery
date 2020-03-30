@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos Carregamento e Inicialização</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css"/>
+    <script src="../jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            
+            var ex1 = $('.ex1');
+            var ex2 = $('.ex2');
+            var button = $('button');
+
+            button.click(function (){
+                // fadeToggle()
+
+                ex1.fadeTo(3000, 0.6, function (){
+                    ex2.fadeTo("slow", 0.3);
+                });
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+
+    <div class="ex1">Aguardando Ação</div>
+    <div class="ex2">Aguardando Ação</div>
+
+    <button type="button">Botão</button>
+    
+</body>
+</html>
